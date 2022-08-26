@@ -41,6 +41,7 @@ router.post("/login", async (req, res) => {
   if (user && req.body.otp === reqOtp) {
     const token = jwt.sign(
       {
+        userName: user.name,
         userId: user.id,
         isAdmin: user.isAdmin,
       },
